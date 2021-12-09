@@ -1,0 +1,29 @@
+﻿
+@model List<Object>
+
+@{
+    ViewData["Title"] = "Liệt kê công nhân địa điểm cách ly";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Mã công nhân</th>
+            <th scope="col">Tên công nhân</th>
+            <th scope="col">Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.GetType().GetProperty("MaCongNhan").GetValue(item, null)</td>
+                <td>@item.GetType().GetProperty("TenCongNhan").GetValue(item, null)</td>
+                <td>
+                    <a href="/CongNhan/Detail/?MaCongNhan=@item.GetType().GetProperty("MaCongNhan").GetValue(item, null)">View</a> |
+                    <a href="/CongNhan/Delete/?MaCongNhan=@item.GetType().GetProperty("MaCongNhan").GetValue(item, null)">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

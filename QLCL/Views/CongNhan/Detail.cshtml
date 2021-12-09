@@ -1,0 +1,40 @@
+﻿@model List<Object>
+
+@{
+    ViewData["Title"] = "Xem";
+}
+
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <div class="form-group">
+            <label for="MaCongNhan">Mã Công nhân</label>
+            <input type="text" class="form-control" id="MaCongNhan" disabled value="@item.GetType().GetProperty("MaCongNhan").GetValue(item, null)">
+        </div>
+        <div class="form-group">
+            <label for="TenCongNhan">Tên Công nhân</label>
+            <input type="text" class="form-control" id="TenCongNhan" disabled value="@item.GetType().GetProperty("TenCongNhan").GetValue(item, null)">
+        </div>
+
+        <div class="row form-group">
+            <div class="col-2">
+                <label class="form-check-label" for="GioiTinh">Giới Tính</label>
+            </div>
+            <div class="col-10">
+                <input type="checkbox" class="form-check-input" id="GioiTinh">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="NamSinh">Năm Sinh</label>
+            <input type="text" class="form-control" id="NamSinh" disabled value="@item.GetType().GetProperty("NamSinh").GetValue(item, null)">
+        </div>
+        <div class="form-group">
+            <label for="NuocVe">Nước Về</label>
+            <input type="text" class="form-control" id="NuocVe" disabled value="@item.GetType().GetProperty("NuocVe").GetValue(item, null)">
+        </div>
+        <a asp-action="LietKeDiemCachLy" asp-controller="DiemCachLy">Quay lại</a>
+    }
+
+</div>

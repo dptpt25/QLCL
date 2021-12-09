@@ -1,0 +1,16 @@
+﻿@model List<Object>
+@{
+    ViewData["Title"] = "Xác nhận xóa";
+}
+
+<div class="container">
+    @foreach (var item in Model)
+    {
+        <h2>Bạn chắc chắn xóa công nhân? <span>@item.GetType().GetProperty("TenCongNhan").GetValue(item, null)</span></h2>
+
+
+        <a href="/CongNhan/DeleteConfirmed/?MaCongNhan=@item.GetType().GetProperty("MaCongNhan").GetValue(item, null)" class="btn btn-danger">Xóa</a>
+        <a asp-action="LietKeDiemCachLy" asp-controller="DiemCachLy" class="btn btn-outline-success">Quay lại</a>
+
+    }
+</div>

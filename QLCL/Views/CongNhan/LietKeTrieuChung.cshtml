@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@{
+    ViewData["Title"] = "Liệt kê triệu chứng";
+}
+
+<div class="container">
+    <form action="/CongNhan/ListByTC" method="post">
+        <div class="form-group">
+            <label for="soTC">Số triệu chứng</label>
+            <input type="text" class="form-control" name="soTC" id="SoTrieuChung">
+        </div>
+        <button type="submit" class="btn btn-primary">Liệt kê</button>
+    </form>
+</div>
